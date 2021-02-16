@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<greenhouse xmlns="http://example.com/greenhouse">
+    <forest-flower origin="Europe">
+        <name>Bellflower</name>
+        <color>violet</color>
+        <forest-type>mixed</forest-type>
+    </forest-flower>
+    <water-flower origin="West Europe">
+        <name>Lotus</name>
+        <color>white</color>
+        <water-salinity>fresh</water-salinity>
+    </water-flower>
+    <garden-flower origin="Asia">
+        <name>Rose</name>
+        <color>red</color>
+        <florescence>May</florescence>
+    </garden-flower>
+</greenhouse>

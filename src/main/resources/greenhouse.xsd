@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://example.com/greenhouse"
+        xmlns:tns="http://example.com/greenhouse"
+        elementFormDefault="qualified">
+    <element name="greenhouse">
+        <complexType>
+            <sequence>
+                <element ref="tns:plants"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Plant">
+        <sequence>
+            <element name="name" type="string" />
+        </sequence>
+        <attribute name="origin" type="string" use="required"/>
+    </complexType>
+    <complexType name="Flower">
+        <complexContent>
+            <extension base="tns:Plant">
+                <sequence>
+                    <element name="color" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="ForestFlower">
+        <complexContent>
+            <extension base="tns:Flower">
+                <sequence>
+                    <element name="forest-type">
+                        <simpleType>
+                            <restriction>
+                                <enumeration value="coniferous"/>
+                                <enumeration value="deciduous"/>
+                                <enumeration value="mixed"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="WaterFlower">
+        <complexContent>
+            <extension base="tns:Flower">
+                <sequence>
+                    <element name="water-salinity">
+                        <simpleType>
+                            <restriction>
+                                <enumeration value="fresh"/>
+                                <enumeration value="salt"/>
+                                <enumeration value="mineral"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="GardenFlower">
+        <complexContent>
+            <extension base="tns:Flower">
+                <sequence>
+                    <element name="florescence">
+                        <simpleType>
+                            <restriction>
+                                <enumeration value="May"/>
+                                <enumeration value="June"/>
+                                <enumeration value="July"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="plants" abstract="true" type="tns:Plant"/>
+    <element name="flowers" type="tns:Flower" substitutionGroup="tns:plants"/>
+    <element name="forest-flower" type="tns:ForestFlower" substitutionGroup="tns:flowers"/>
+    <element name="water-flower" type="tns:WaterFlower" substitutionGroup="tns:flowers"/>
+    <element name="garden-flower" type="tns:GardenFlower" substitutionGroup="tns:flowers"/>
+</schema>
