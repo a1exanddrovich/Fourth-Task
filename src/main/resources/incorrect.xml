@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<greenhouse xmlns="http://example.com/greenhouse">
+    <garden-flower origin="Asia">
+        <name>ExistingFlower</name>
+        <color>blue</color>
+        <florescence>January</florescence>
+    </garden-flower>
+    <forest-flower origin="America">
+        <name>NonExistingFlower</name>
+        <color>violet</color>
+        <forest-type>Cute</forest-type>
+    </forest-flower>
+</greenhouse>
