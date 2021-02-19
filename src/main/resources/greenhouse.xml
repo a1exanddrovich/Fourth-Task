@@ -15,4 +15,9 @@
         <color>red</color>
         <florescence>May</florescence>
     </garden-flower>
+    <garden-flower origin="Asia">
+        <name>Bell</name>
+        <color>orange</color>
+        <florescence>June</florescence>
+    </garden-flower>
 </greenhouse>

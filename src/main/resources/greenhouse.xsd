@@ -3,6 +3,7 @@
         targetNamespace="http://example.com/greenhouse"
         xmlns:tns="http://example.com/greenhouse"
         elementFormDefault="qualified">
+
     <element name="greenhouse">
         <complexType>
             <sequence>
@@ -34,7 +35,7 @@
                 <sequence>
                     <element name="forest-type">
                         <simpleType>
-                            <restriction>
+                            <restriction base="string">
                                 <enumeration value="coniferous"/>
                                 <enumeration value="deciduous"/>
                                 <enumeration value="mixed"/>
@@ -51,7 +52,7 @@
                 <sequence>
                     <element name="water-salinity">
                         <simpleType>
-                            <restriction>
+                            <restriction base="string">
                                 <enumeration value="fresh"/>
                                 <enumeration value="salt"/>
                                 <enumeration value="mineral"/>
@@ -68,7 +69,7 @@
                 <sequence>
                     <element name="florescence">
                         <simpleType>
-                            <restriction>
+                            <restriction base="string">
                                 <enumeration value="May"/>
                                 <enumeration value="June"/>
                                 <enumeration value="July"/>
@@ -81,7 +82,7 @@
     </complexType>
 
     <element name="plants" abstract="true" type="tns:Plant"/>
-    <element name="flowers" type="tns:Flower" substitutionGroup="tns:plants"/>
+    <element name="flowers" type="tns:Flower" abstract="true" substitutionGroup="tns:plants"/>
     <element name="forest-flower" type="tns:ForestFlower" substitutionGroup="tns:flowers"/>
     <element name="water-flower" type="tns:WaterFlower" substitutionGroup="tns:flowers"/>
     <element name="garden-flower" type="tns:GardenFlower" substitutionGroup="tns:flowers"/>
